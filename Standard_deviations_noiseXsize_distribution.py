@@ -46,6 +46,7 @@ handles = [plt.Line2D([0], [0], marker='o', color='w', markerfacecolor='#993404'
 labels = ['Size 1', 'Size 3']
 
 # Add jittered dots for average estimates across subjects for both sizes within each noise condition
+# LP: very minor: this you could have done in a small loop (just convenient to change parameters for the plot only once if needed)
 # size 1
 sns.stripplot(
     data=avg_sd_across_subjects_merged, x=avg_sd_across_subjects_merged.index, y=1, color='#993404',

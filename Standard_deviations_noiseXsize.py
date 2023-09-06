@@ -31,7 +31,12 @@ print(grouped_stats)
 # Calculate 95% confidence interval
 conf_interval = 0.95
 
-
+# LP: As you are using this function across multiple scripts, this is a good example
+# of code that it would be nice to factor out into a separate file and import!
+# Same for lines below until 55, there seems to be a lot of overlapping with eg
+# Standard_deviations_across_sizes.py. you might have to spend some time thinking
+# about how to best factor out the code so that it can be used in multiple places, eg
+# by specifying as an argument the columns to group by.
 def calc_conf_interval(data):
     mean = data['mean']
     std = data['std']

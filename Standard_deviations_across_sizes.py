@@ -34,7 +34,8 @@ print(grouped_stats)
 # Calculate 95% confidence interval
 conf_interval = 0.95
 
-
+# LP: Good to define function and apply; make sure that you define in the function all variables that you want to use
+# in this case, conf_interval is better to put as an argument with a default.
 def calc_conf_interval(data):
     mean = data['mean']
     std = data['std']

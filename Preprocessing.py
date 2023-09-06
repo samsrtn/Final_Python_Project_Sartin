@@ -30,6 +30,7 @@ grouped = df_trials.groupby(['subject', 'noise', 'size'])['final_est'].agg(['mea
 df_trials = df_trials.merge(grouped, on=['subject', 'noise', 'size'])
 
 # 3.2 Calculate the threshold for outliers (mean +/- 2.5 SDs)
+# LP: Here 2.5 should be defined as a variable, so that it can be changed easily in both places
 df_trials['upper_threshold'] = df_trials['mean'] + 2.5 * df_trials['std']
 df_trials['lower_threshold'] = df_trials['mean'] - 2.5 * df_trials['std']
 
@@ -49,6 +50,8 @@ df_without_outliers = df_trials[
 ]
 
 # Display the new dataframe without outliers and remove unuseful columns
+# LP: very very minor: in general I would recommend to stick to 
+# csv format for data files, as it is more universal and easier to read in multiple places.
 df_without_outliers = df_without_outliers.drop(columns=['upper_threshold', 'lower_threshold', 'mean', 'std'])
 print(df_without_outliers)
 df_without_outliers.to_excel('df_trials_wo_outliers.xlsx', index=False)
